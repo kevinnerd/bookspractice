@@ -3,6 +3,7 @@ package chapter3;
 import chapter3.impl.DevDataSource;
 import chapter3.impl.PrdDataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
@@ -22,5 +23,11 @@ public class DataSourceConfiguration {
     @Profile("prd")
     public DataSource prdDataSource(){
         return new PrdDataSource();
+    }
+
+    @Bean
+    @Conditional(MagicExistsCondition.class)
+    public MagicBean magicBean(){
+        return new MagicBean();
     }
 }

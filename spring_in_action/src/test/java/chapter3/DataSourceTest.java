@@ -14,10 +14,12 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = DataSourceConfiguration.class)
-//@ActiveProfiles("prd")
+@ActiveProfiles("prd")
 public class DataSourceTest {
     @Autowired
     DataSource dataSource;
+    @Autowired
+    MagicBean magicBean;
 
     @Test
     public void dataSourceTest()
