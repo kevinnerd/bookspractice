@@ -3,8 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bean="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--<bean:component-scan base-package="chapter2.soundsystem"/>-->
-    <bean id="sgtPeppers" class="chapter2.soundsystem.impl.SgtPeppers" />
-    <bean id="cdPlayer" class="chapter2.soundsystem.impl.CDPlayer">
-        <constructor-arg ref="sgtPeppers" />
-    </bean>
+    <beans profile="dev">
+        <bean id="sgtPeppers" class="chapter2.soundsystem.impl.SgtPeppers" />
+        <bean id="cdPlayer" class="chapter2.soundsystem.impl.CDPlayer">
+            <constructor-arg ref="sgtPeppers" />
+        </bean>
+    </beans>
+
 </beans>
